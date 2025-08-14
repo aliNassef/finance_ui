@@ -1,19 +1,18 @@
-import 'package:finance_ui/core/extensions/mediaquery_size.dart';
 import 'package:finance_ui/core/extensions/padding_extension.dart';
 import 'package:finance_ui/core/utils/app_colors.dart';
 import 'package:finance_ui/core/utils/app_styles.dart';
 import 'package:finance_ui/core/widgets/custom_text_form_field.dart';
 import 'package:finance_ui/core/widgets/default_app_button.dart';
-import 'package:finance_ui/features/auth/presentation/view/register_view.dart';
+import 'package:finance_ui/features/auth/presentation/view/login_view.dart';
+import 'package:finance_ui/features/auth/presentation/widgets/social_media_buttons.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import '../widgets/build_auth_appbar.dart';
-import '../widgets/social_media_buttons.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+import '../widgets/build_auth_appbar.dart';
+
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,45 +22,41 @@ class LoginView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Gap(28.h),
+            const Gap(28),
             Text(
-              'Welcome back!\n Again!',
+              'Hello! Register to get started',
               style: AppStyles.primaryHeadLinesStyle,
-              textAlign: TextAlign.start,
             ),
-            Gap(32.h),
+            const Gap(32),
             CustomTextFormField(
+              hint: 'Username',
               controller: TextEditingController(),
-              hint: 'Enter your email',
             ),
-            Gap(15.h),
+            const Gap(12),
             CustomTextFormField(
+              hint: 'Email',
               controller: TextEditingController(),
-              hint: 'Enter your password',
             ),
-            Gap(15.h),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Forgot Password?',
-                  style: AppStyles.subtitlesStyles.copyWith(
-                    color: const Color(0xff6A707C),
-                  ),
-                ),
-              ),
+            const Gap(12),
+            CustomTextFormField(
+              hint: 'Password',
+              controller: TextEditingController(),
             ),
-            Gap(30.h),
-            const DefaultAppButton(text: 'Login'),
-            Gap(35.h),
+            const Gap(12),
+            CustomTextFormField(
+              hint: 'Confirm password',
+              controller: TextEditingController(),
+            ),
+            const Gap(30),
+            const DefaultAppButton(text: 'Register'),
+            const Gap(35),
             Row(
               children: [
                 const Expanded(
                   child: Divider(color: Color(0xffE8ECF4), thickness: 1),
                 ),
                 Text(
-                  'Or Login with',
+                  'Or Register with',
                   style: AppStyles.subtitlesStyles.copyWith(
                     color: const Color(0xff6A707C),
                   ),
@@ -71,9 +66,9 @@ class LoginView extends StatelessWidget {
                 ),
               ],
             ),
-            Gap(22.h),
+            const Gap(22),
             const SocialMediaButtons(),
-            Gap(context.height * .25),
+            const Gap(54),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -81,14 +76,14 @@ class LoginView extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Don’t have an account?',
+                        text: 'Already have an account?',
                         style: AppStyles.semiBold15.copyWith(
                           fontWeight: FontWeight.w500,
                           color: AppColors.primaryColor,
                         ),
                       ),
                       TextSpan(
-                        text: ' Register Now',
+                        text: ' Login Now',
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             Navigator.push(
@@ -96,7 +91,7 @@ class LoginView extends StatelessWidget {
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation, secondaryAnimation) =>
-                                        const RegisterView(),
+                                        const LoginView(),
                                 transitionsBuilder:
                                     (
                                       context,
