@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import '../widgets/build_auth_appbar.dart';
 import '../widgets/social_media_buttons.dart';
+import 'forget_pass_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -18,7 +19,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAuthAppBar(),
+      appBar: buildAuthAppBar(context),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +44,9 @@ class LoginView extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  _goToForgetPassword(context);
+                },
                 child: Text(
                   'Forgot Password?',
                   style: AppStyles.subtitlesStyles.copyWith(
@@ -91,24 +94,7 @@ class LoginView extends StatelessWidget {
                         text: ' Register Now',
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) =>
-                                        const RegisterView(),
-                                transitionsBuilder:
-                                    (
-                                      context,
-                                      animation,
-                                      secondaryAnimation,
-                                      child,
-                                    ) => FadeTransition(
-                                      opacity: animation,
-                                      child: child,
-                                    ),
-                              ),
-                            );
+                            _goToRegister(context);
                           },
                         style: AppStyles.semiBold15.copyWith(
                           fontWeight: FontWeight.bold,
@@ -122,6 +108,30 @@ class LoginView extends StatelessWidget {
             ),
           ],
         ).withHorizontalPadding(16),
+      ),
+    );
+  }
+
+  _goToRegister(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const RegisterView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            FadeTransition(opacity: animation, child: child),
+      ),
+    );
+  }
+
+  void _goToForgetPassword(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const ForgetPassView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            FadeTransition(opacity: animation, child: child),
       ),
     );
   }
