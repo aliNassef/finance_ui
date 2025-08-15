@@ -1,5 +1,5 @@
-import 'package:finance_ui/core/utils/app_colors.dart';
-import 'package:finance_ui/core/utils/app_styles.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

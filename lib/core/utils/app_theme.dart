@@ -1,5 +1,5 @@
-import 'package:finance_ui/core/utils/app_colors.dart';
-import 'package:finance_ui/core/utils/app_fonts.dart';
+import 'app_colors.dart';
+import 'app_fonts.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {

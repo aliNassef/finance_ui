@@ -1,10 +1,11 @@
-import 'package:finance_ui/core/extensions/padding_extension.dart';
-import 'package:finance_ui/core/utils/app_styles.dart';
-import 'package:finance_ui/core/widgets/custom_text_form_field.dart';
-import 'package:finance_ui/core/widgets/default_app_button.dart';
-import 'package:finance_ui/features/auth/presentation/widgets/build_auth_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
+import '../../../../core/extensions/padding_extension.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../core/widgets/default_app_button.dart';
+import '../widgets/build_auth_appbar.dart';
 
 class CreateNewPassView extends StatelessWidget {
   const CreateNewPassView({super.key});

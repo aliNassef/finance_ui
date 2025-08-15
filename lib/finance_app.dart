@@ -1,5 +1,5 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:finance_ui/core/utils/app_theme.dart';
+import 'core/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

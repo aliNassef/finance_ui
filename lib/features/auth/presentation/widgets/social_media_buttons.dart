@@ -1,4 +1,4 @@
-import 'package:finance_ui/core/utils/app_assets.dart' show AppAssets;
+import '../../../../core/utils/app_assets.dart' show AppAssets;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
