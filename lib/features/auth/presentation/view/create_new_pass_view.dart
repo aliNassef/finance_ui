@@ -6,6 +6,7 @@ import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/default_app_button.dart';
 import '../widgets/build_auth_appbar.dart';
+import 'auth_successful_view.dart';
 
 class CreateNewPassView extends StatelessWidget {
   const CreateNewPassView({super.key});
@@ -38,9 +39,26 @@ class CreateNewPassView extends StatelessWidget {
               controller: TextEditingController(),
             ),
             const Gap(38),
-            DefaultAppButton(text: 'Reset Password', onPressed: () {}),
+            DefaultAppButton(
+              text: 'Reset Password',
+              onPressed: () {
+                _goToSuccessfulPage(context);
+              },
+            ),
           ],
         ).withHorizontalPadding(16),
+      ),
+    );
+  }
+
+  void _goToSuccessfulPage(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const AuthSuccessfulView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            FadeTransition(opacity: animation, child: child),
       ),
     );
   }

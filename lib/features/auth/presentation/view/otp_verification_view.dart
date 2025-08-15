@@ -31,7 +31,7 @@ class OtpVerificationView extends StatelessWidget {
             const Gap(32),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Pinput(length: 5)],
+              children: [Pinput(length: 4)],
             ),
             const Gap(38),
             DefaultAppButton(
